@@ -1,17 +1,27 @@
 import Head from "next/head";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [logoText, setLogoText] = useState("A Z");
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLogoText("AramBiZ");
+    }, 1500); // change after 1.5 seconds
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <div className="bg-black text-white min-h-screen font-sans scroll-smooth">
       <Head>
         <title>AramBiz</title>
       </Head>
-      <nav className="fixed w-full bg-black bg-opacity-90 border-b border-gray-800 z-50 px-6 py-4 flex justify-between">
-        <h1 className="text-xl font-bold">AramBiz</h1>
+      <nav className="fixed w-full bg-black bg-opacity-90 border-b border-gray-800 z-50 px-6 py-4 flex justify-between items-center transition-all duration-700">
+        <h1 className="text-xl font-bold transition-all duration-1000 ease-in-out text-white">{logoText}</h1>
         <div className="space-x-6">
-          <a href="#about" className="hover:text-gray-300">About</a>
-          <a href="#services" className="hover:text-gray-300">Services</a>
-          <a href="#contact" className="hover:text-gray-300">Contact</a>
+          <a href="#about" className="hover:text-gray-300 transition">About</a>
+          <a href="#services" className="hover:text-gray-300 transition">Services</a>
+          <a href="#contact" className="hover:text-gray-300 transition">Contact</a>
         </div>
       </nav>
 
