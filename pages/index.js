@@ -1,15 +1,50 @@
+import Head from "next/head";
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col justify-center items-center text-center px-4">
-      <h1 className="text-4xl md:text-6xl font-bold drop-shadow-md">
-        We Build Automation-First Businesses.
-      </h1>
-      <p className="text-lg md:text-xl mt-4 max-w-xl text-gray-300">
-        AramBiz is a Tamil Nadu-based tech firm helping founders go from Zero to Launch.
-      </p>
-      <button className="mt-6 px-6 py-3 border border-white text-white rounded hover:bg-white hover:text-black transition-all">
-        Let’s Talk
-      </button>
+    <div className="bg-black text-white min-h-screen font-sans scroll-smooth">
+      <Head>
+        <title>AramBiz</title>
+      </Head>
+      <nav className="fixed w-full bg-black bg-opacity-90 border-b border-gray-800 z-50 px-6 py-4 flex justify-between">
+        <h1 className="text-xl font-bold">AramBiz</h1>
+        <div className="space-x-6">
+          <a href="#about" className="hover:text-gray-300">About</a>
+          <a href="#services" className="hover:text-gray-300">Services</a>
+          <a href="#contact" className="hover:text-gray-300">Contact</a>
+        </div>
+      </nav>
+
+      <section className="flex items-center justify-center h-screen text-center px-4">
+        <div>
+          <h2 className="text-4xl md:text-6xl font-bold">We Build Automation-First Businesses.</h2>
+          <p className="text-gray-300 mt-4 max-w-xl mx-auto">AramBiz is a Tamil Nadu-based tech firm helping founders go from Zero to Launch.</p>
+          <a href="#contact" className="inline-block mt-6 px-6 py-3 border border-white rounded hover:bg-white hover:text-black transition-all">
+            Let’s Talk
+          </a>
+        </div>
+      </section>
+
+      <section id="about" className="px-6 py-24 bg-black text-white">
+        <h3 className="text-3xl font-bold mb-4">About Us</h3>
+        <p className="max-w-3xl text-gray-300">AramBiz is founded by Jai Kumaresh and family, with a vision to empower startups through smart automation, branding, and AI-enhanced tech solutions — built for Tamil Nadu, with global standards.</p>
+      </section>
+
+      <section id="services" className="px-6 py-24 bg-gray-900 text-white">
+        <h3 className="text-3xl font-bold mb-4">Our Services</h3>
+        <ul className="list-disc list-inside text-gray-300 space-y-2">
+          <li>Startup Consulting & Strategy</li>
+          <li>Website & Branding Design</li>
+          <li>Workflow Automation</li>
+          <li>AI Tool Development & SaaS MVPs</li>
+        </ul>
+      </section>
+
+      <section id="contact" className="px-6 py-24 bg-black text-white">
+        <h3 className="text-3xl font-bold mb-4">Contact</h3>
+        <p className="text-gray-300">Email: <a href="mailto:jaikumareshb@gmail.com" className="underline">jaikumareshb@gmail.com</a></p>
+        <p className="text-gray-300 mt-2">Location: Chennai, Tamil Nadu</p>
+      </section>
     </div>
-  )
+  );
 }
