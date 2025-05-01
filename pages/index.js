@@ -3,12 +3,19 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [logoText, setLogoText] = useState("A Z");
+  const [animate, setAnimate] = useState(true);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    const hasAnimated = localStorage.getItem("logoAnimated");
+    if (!hasAnimated) {
+      setTimeout(() => {
+        setLogoText("AramBiZ");
+        localStorage.setItem("logoAnimated", "true");
+      }, 1500);
+    } else {
       setLogoText("AramBiZ");
-    }, 1500); // change after 1.5 seconds
-    return () => clearTimeout(timeout);
+      setAnimate(false);
+    }
   }, []);
 
   return (
@@ -17,7 +24,7 @@ export default function Home() {
         <title>AramBiz</title>
       </Head>
       <nav className="fixed w-full bg-black bg-opacity-90 border-b border-gray-800 z-50 px-6 py-4 flex justify-between items-center transition-all duration-700">
-        <h1 className="text-xl font-bold transition-all duration-1000 ease-in-out text-white">{logoText}</h1>
+        <h1 className="text-xl font-bold">{logoText}</h1>
         <div className="space-x-6">
           <a href="#about" className="hover:text-gray-300 transition">About</a>
           <a href="#services" className="hover:text-gray-300 transition">Services</a>
@@ -25,14 +32,15 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="flex items-center justify-center h-screen text-center px-4">
-        <div>
-          <h2 className="text-4xl md:text-6xl font-bold">We Build Automation-First Businesses.</h2>
-          <p className="text-gray-300 mt-4 max-w-xl mx-auto">AramBiz is a Tamil Nadu-based tech firm helping founders go from Zero to Launch.</p>
-          <a href="#contact" className="inline-block mt-6 px-6 py-3 border border-white rounded hover:bg-white hover:text-black transition-all">
-            Let’s Talk
-          </a>
+      <section className="flex flex-col items-center justify-center h-screen text-center px-4">
+        <div className="mb-4 text-3xl font-bold tracking-widest transition-all duration-1000 ease-out text-white">
+          {logoText}
         </div>
+        <h2 className="text-4xl md:text-6xl font-bold">We Build Automation-First Businesses.</h2>
+        <p className="text-gray-300 mt-4 max-w-xl mx-auto">AramBiz is a Tamil Nadu-based tech firm helping founders go from Zero to Launch.</p>
+        <a href="#contact" className="inline-block mt-6 px-6 py-3 border border-white rounded hover:bg-white hover:text-black transition-all">
+          Let’s Talk
+        </a>
       </section>
 
       <section id="about" className="px-6 py-24 bg-black text-white">
