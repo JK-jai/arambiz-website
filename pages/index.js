@@ -63,6 +63,12 @@ export default function Home() {
         <p className="text-gray-300">Email: <a href="mailto:jaikumareshb@gmail.com" className="underline">jaikumareshb@gmail.com</a></p>
         <p className="text-gray-300 mt-2">Location: Chennai, Tamil Nadu</p>
       </section>
-    </div>
+    
+<a href="#contact"
+   className="fixed bottom-6 right-6 bg-white text-black font-semibold px-5 py-3 rounded-full shadow-lg hover:bg-gray-200 transition-all z-50">
+  Let’s Talk
+</a>
+
+</div>
   );
 }
